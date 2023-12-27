@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -8,10 +8,12 @@ def hello_world():
     return 'Hello, World!'
 
 
-@app.route('/test', methods=['POST'])
-def test():
-    text = request.form['text']
-    return f"Message received: {text}"
+@app.route('/submit_cv', methods=['POST'])
+def upload_file():
+    uploaded_file = request.files['cv']
+    if uploaded_file.filename != '':
+        uploaded_file.save(uploaded_file.filename)
+    return redirect(url_for('hello_world'))
 
 
 if __name__ == '__main__':

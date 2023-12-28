@@ -7,3 +7,4 @@ dependencies:
   - flask-cors
   - pypdf2
   - openai
+  - docx2txt

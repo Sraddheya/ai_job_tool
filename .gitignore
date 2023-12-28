@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # Environment files
 .env
+
+# PDF testing files
+*.pdf
